@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  line-height: 1.5;
+  vertical-align: baseline;
+  text-decoration: none;
+  outline: 0;
+  box-sizing: border-box;
+  background-color: transparent;
+  font-family: "Clarika Geo Regular", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.container {
+  width: 1040px;
+  margin: 0 auto;
+  min-height: -moz-fit-content;
+  min-height: fit-content;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
