@@ -1,14 +1,26 @@
+@font-face {
+  font-family: "Video400";
+  src: url("../fonts/Video-Regular.ttf");
+}
+@font-face {
+  font-family: "Video300";
+  src: url("../fonts/Video-Light.ttf");
+}
+@font-face {
+  font-family: "WorkSans";
+  src: url("../fonts/WorkSans.ttf");
+}
 * {
   margin: 0;
   padding: 0;
   border: 0;
-  line-height: 1.5;
+  line-height: 1.4;
   vertical-align: baseline;
   text-decoration: none;
   outline: 0;
   box-sizing: border-box;
   background-color: transparent;
-  font-family: "Clarika Geo Regular", sans-serif;
+  color: #020206;
 }
 
 html {
@@ -16,11 +28,138 @@ html {
 }
 
 .container {
-  width: 1040px;
+  width: 1264px;
   margin: 0 auto;
   min-height: -moz-fit-content;
   min-height: fit-content;
-  height: 100vh;
   position: relative;
   overflow: hidden;
+}
+
+.head-button {
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 12px 32px;
+  background-color: #45d5ec;
+  border-radius: 12px;
+  font-family: "Video400", sans-serif;
+}
+
+.configurator-box {
+  background-image: linear-gradient(white, white), linear-gradient(288deg, rgba(69, 213, 236, 0.07), rgba(69, 213, 236, 0.7));
+  border: double 1px transparent;
+  border-radius: 12px;
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+.configurator-box .main {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 64px 48px;
+}
+.configurator-box .main .head-box {
+  display: flex;
+  justify-content: space-between;
+}
+.configurator-box .main .head-box .titles {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.configurator-box .main .head-box .titles .title {
+  font-family: "Video300", sans-serif;
+  font-size: 32px;
+  color: #45d5ec;
+  font-weight: normal;
+  letter-spacing: -0.01em;
+}
+.configurator-box .main .head-box .titles .subtitle {
+  font-family: "WorkSans", sans-serif;
+  font-size: 14px;
+  color: #45d5ec;
+}
+.configurator-box .main .head-box .steps-bars {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  height: 25px;
+}
+.configurator-box .main .head-box .steps-bars .desc {
+  font-family: "WorkSans", sans-serif;
+  font-size: 16px;
+  color: #B2B2B4;
+}
+.configurator-box .main .head-box .steps-bars .bars {
+  display: flex;
+  gap: 4px;
+}
+.configurator-box .main .head-box .steps-bars .bars .bar {
+  height: 8px;
+  background-color: #FEE3B8;
+  width: 12px;
+  border-radius: 12px;
+}
+.configurator-box .main .head-box .steps-bars .bars .bar.active {
+  width: 16px;
+  background-color: #FCA311;
+}
+.configurator-box .content {
+  display: flex;
+  gap: 12px;
+}
+.configurator-box .content .box {
+  padding: 32px 24px;
+  border-radius: 12px;
+  gap: 24px;
+  flex-basis: 50%;
+  flex-direction: column;
+  display: flex;
+  border: 1px solid rgba(204, 204, 207, 0.2509803922);
+  background-color: #FEFEFE;
+  background-image: radial-gradient(120% 120% at 75% 160%, rgba(204, 204, 207, 0.3), rgba(204, 204, 207, 0));
+  box-shadow: 0px 8px 16px 0px rgba(204, 204, 207, 0.2392156863);
+}
+.configurator-box .content .box .icon {
+  display: flex;
+}
+.configurator-box .content .box .text-box .main-text {
+  font-weight: normal;
+  font-size: 24px;
+  font-family: "WorkSans", sans-serif;
+}
+.configurator-box .content .box .text-box .sub-text {
+  font-size: 14px;
+  font-family: "WorkSans", sans-serif;
+  color: #B2B2B4;
+}
+.configurator-box .buttons {
+  display: flex;
+  gap: 32px;
+  justify-content: space-between;
+}
+.configurator-box .buttons .buttons-wrapper {
+  display: flex;
+  gap: 12px;
+}
+.configurator-box .buttons .buttons-wrapper .button {
+  gap: 10px;
+  padding: 14px 32px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+}
+.configurator-box .buttons .buttons-wrapper .button.next {
+  background-color: #FCA311;
+  background-image: radial-gradient(170% 170% at 25% 180%, #F51542, rgba(245, 21, 66, 0));
+}
+.configurator-box .buttons .buttons-wrapper .button p {
+  font-family: "Video300", sans-serif;
+  color: #FEFEFE;
+}
+.configurator-box .buttons .buttons-wrapper .button img {
+  height: 9px;
 }
