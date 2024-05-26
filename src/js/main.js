@@ -58,6 +58,13 @@ buttonPrevArrLoc.forEach((elem) => {
         const containerWidthWithoutBorder = containerWidth - leftContainerBorder - rightContainerBorder - leftPagesBorder - rightPagesBorder
         const newLeftValue = actualPosition + containerWidthWithoutBorder
 
-        formPagesLoc.style.left = newLeftValue + "px"
+        formPagesLoc.style.left = newLeftValue + 100 + "px"
+        setTimeout(()=> {
+            formPagesLoc.style.transition = "left 0.3s ease-out";
+            formPagesLoc.style.left = newLeftValue + "px"
+        },550)
+        setTimeout(()=> {
+            formPagesLoc.style.transition = "left 0.5s ease-in";
+        },600)
     })
 })
