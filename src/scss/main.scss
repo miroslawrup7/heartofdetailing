@@ -14,13 +14,15 @@
 }
 
 
-$niebieski500: #45d5ec;
+$niebieski500: #45D5EC;
 $granatowy800: #020206;
 $szaryfont: #B2B2B4;
 $zolty500: #FCA311;
 $zolty300: #FEE3B8;
 $bialy200: #FEFEFE;
 $szarawy: #CCCCCF;
+
+$box-gap: 12px;
 
 * {
     margin: 0;
@@ -43,7 +45,7 @@ html {
     width: 1264px;
     margin: 0 auto;
     // min-height: fit-content;
-    min-height: 800px;
+    min-height: 1400px;
     height: 100vh; // zmień na 100% po umieszczeniu w Wordpress
     position: relative;
     overflow: hidden;
@@ -158,13 +160,14 @@ html {
 
             .content {
                 display: flex;
-                gap: 12px;
+                gap: $box-gap;
+                flex-wrap: wrap;
 
                 .box {
                     padding: 32px 24px;
                     border-radius: 12px;
                     gap: 24px;
-                    flex-basis: 50%;
+                    flex-shrink: 0;
                     flex-direction: column;
                     display: flex;
                     border: 1px solid #CCCCCF40;
@@ -173,8 +176,53 @@ html {
                     box-shadow: 0px 8px 16px 0px #CCCCCF3D;
                     cursor: pointer;
 
+                    &.xl-w-50 {
+                        flex-basis: calc(50% - $box-gap / 2);
+                    }
+
+                    &.xl-w-25 {
+                        flex-basis: calc(25% - ($box-gap * 3) / 4);
+                    }
+
+                    &.xl-w-33 {
+                        flex-basis: calc(33.33333% - ($box-gap * 2) / 3);
+                    }
+
+                    &.gap-16 {
+                        gap: 16px;
+                    }
+
                     .icon {
                         display: flex;
+                    }
+
+                    .content-box {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 40px;
+                    }
+
+                    .features-list {
+                        gap: 8px;
+                        display: flex;
+                        flex-direction: column;
+
+                        .list-title {
+                            font-family: "WorkSans", sans-serif;
+                            font-size: 16px;
+                            color: $granatowy800;
+                        }
+
+                        ul {
+                            gap: 4px;
+                            display: flex;
+                            flex-direction: column;
+                            padding: 0 12px 0 24px;
+                            list-style-image: url("../img/icons/triangle-list-black.svg");
+                            font-family: "WorkSans", sans-serif;
+                            font-size: 14px;
+                            color: $granatowy800;
+                        }
                     }
 
                     .text-box {

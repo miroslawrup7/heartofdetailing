@@ -30,12 +30,17 @@ buttonNextArrLoc.forEach((elem) => {
             allowNext = true
         }
 
+        if (actualPage.classList.contains("page2")) {
+            console.log("Strona 2. Sprawdź czy user może przejśc dalej.")
+            allowNext = true
+        }
+
         if (allowNext) {
             formPagesLoc.style.left = newLeftValue - 100 + "px"
             setTimeout(()=> {
                 formPagesLoc.style.transition = "left 0.3s ease-out";
                 formPagesLoc.style.left = newLeftValue + "px"
-            },550)
+            },500)
             setTimeout(()=> {
                 formPagesLoc.style.transition = "left 0.5s ease-in";
             },600)
