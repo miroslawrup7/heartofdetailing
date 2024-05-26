@@ -34,6 +34,7 @@ html {
   min-height: fit-content;
   position: relative;
   overflow: hidden;
+  margin: 50px auto;
 }
 
 .head-button {
@@ -51,67 +52,69 @@ html {
   border-radius: 12px;
   background-origin: border-box;
   background-clip: content-box, border-box;
+}
+.configurator-box .configurator-box-wrapper {
+  padding: 64px 48px;
   display: flex;
   flex-direction: column;
   gap: 64px;
 }
-.configurator-box .main {
+.configurator-box .configurator-box-wrapper .main {
   display: flex;
   flex-direction: column;
   gap: 32px;
-  padding: 64px 48px;
 }
-.configurator-box .main .head-box {
+.configurator-box .configurator-box-wrapper .main .head-box {
   display: flex;
   justify-content: space-between;
 }
-.configurator-box .main .head-box .titles {
+.configurator-box .configurator-box-wrapper .main .head-box .titles {
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
-.configurator-box .main .head-box .titles .title {
+.configurator-box .configurator-box-wrapper .main .head-box .titles .title {
   font-family: "Video300", sans-serif;
   font-size: 32px;
   color: #45d5ec;
   font-weight: normal;
   letter-spacing: -0.01em;
 }
-.configurator-box .main .head-box .titles .subtitle {
+.configurator-box .configurator-box-wrapper .main .head-box .titles .subtitle {
   font-family: "WorkSans", sans-serif;
   font-size: 14px;
   color: #45d5ec;
 }
-.configurator-box .main .head-box .steps-bars {
+.configurator-box .configurator-box-wrapper .main .head-box .steps-bars {
   display: flex;
   gap: 15px;
   align-items: center;
   height: 25px;
 }
-.configurator-box .main .head-box .steps-bars .desc {
+.configurator-box .configurator-box-wrapper .main .head-box .steps-bars .desc {
   font-family: "WorkSans", sans-serif;
   font-size: 16px;
   color: #B2B2B4;
 }
-.configurator-box .main .head-box .steps-bars .bars {
+.configurator-box .configurator-box-wrapper .main .head-box .steps-bars .bars {
   display: flex;
   gap: 4px;
 }
-.configurator-box .main .head-box .steps-bars .bars .bar {
+.configurator-box .configurator-box-wrapper .main .head-box .steps-bars .bars .bar {
   height: 8px;
   background-color: #FEE3B8;
   width: 12px;
   border-radius: 12px;
 }
-.configurator-box .main .head-box .steps-bars .bars .bar.active {
+.configurator-box .configurator-box-wrapper .main .head-box .steps-bars .bars .bar.active {
   width: 16px;
   background-color: #FCA311;
 }
-.configurator-box .content {
+.configurator-box .configurator-box-wrapper .main .content {
   display: flex;
   gap: 12px;
 }
-.configurator-box .content .box {
+.configurator-box .configurator-box-wrapper .main .content .box {
   padding: 32px 24px;
   border-radius: 12px;
   gap: 24px;
@@ -122,44 +125,91 @@ html {
   background-color: #FEFEFE;
   background-image: radial-gradient(120% 120% at 75% 160%, rgba(204, 204, 207, 0.3), rgba(204, 204, 207, 0));
   box-shadow: 0px 8px 16px 0px rgba(204, 204, 207, 0.2392156863);
+  cursor: pointer;
 }
-.configurator-box .content .box .icon {
+.configurator-box .configurator-box-wrapper .main .content .box .icon {
   display: flex;
 }
-.configurator-box .content .box .text-box .main-text {
+.configurator-box .configurator-box-wrapper .main .content .box .text-box .main-text {
   font-weight: normal;
   font-size: 24px;
   font-family: "WorkSans", sans-serif;
 }
-.configurator-box .content .box .text-box .sub-text {
+.configurator-box .configurator-box-wrapper .main .content .box .text-box .sub-text {
   font-size: 14px;
   font-family: "WorkSans", sans-serif;
   color: #B2B2B4;
 }
-.configurator-box .buttons {
+.configurator-box .configurator-box-wrapper .main .buttons {
   display: flex;
   gap: 32px;
   justify-content: space-between;
 }
-.configurator-box .buttons .buttons-wrapper {
+.configurator-box .configurator-box-wrapper .main .buttons .buttons-wrapper {
   display: flex;
   gap: 12px;
 }
-.configurator-box .buttons .buttons-wrapper .button {
+.configurator-box .configurator-box-wrapper .main .buttons .buttons-wrapper .button {
   gap: 10px;
   padding: 14px 32px;
   border-radius: 50px;
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
-.configurator-box .buttons .buttons-wrapper .button.next {
+.configurator-box .configurator-box-wrapper .main .buttons .buttons-wrapper .button.next {
   background-color: #FCA311;
   background-image: radial-gradient(170% 170% at 25% 180%, #F51542, rgba(245, 21, 66, 0));
+  box-shadow: inset 4px 4px 8px 0px rgba(252, 209, 156, 0.2);
+  filter: drop-shadow(0px 0px 8px rgba(247, 232, 190, 0.1607843137));
 }
-.configurator-box .buttons .buttons-wrapper .button p {
+.configurator-box .configurator-box-wrapper .main .buttons .buttons-wrapper .button p {
   font-family: "Video300", sans-serif;
   color: #FEFEFE;
 }
-.configurator-box .buttons .buttons-wrapper .button img {
+.configurator-box .configurator-box-wrapper .main .buttons .buttons-wrapper .button img {
   height: 9px;
+}
+.configurator-box .configurator-box-wrapper .summary {
+  display: flex;
+  padding-bottom: 24px;
+  gap: 139px;
+  border-bottom: 1px solid;
+  border-bottom: 1px solid #CCCCCF;
+  justify-content: space-between;
+}
+.configurator-box .configurator-box-wrapper .summary .notes-wrapper {
+  display: flex;
+  width: 451px;
+}
+.configurator-box .configurator-box-wrapper .summary .notes-wrapper .note {
+  font-family: "WorkSans", sans-serif;
+  font-size: 10px;
+  color: #B2B2B4;
+}
+.configurator-box .configurator-box-wrapper .summary .pricing-wrapper {
+  display: flex;
+  width: 578px;
+  justify-content: space-between;
+}
+.configurator-box .configurator-box-wrapper .summary .pricing-wrapper .cost .value-wrapper {
+  display: flex;
+  align-items: first baseline;
+  gap: 16px;
+}
+.configurator-box .configurator-box-wrapper .summary .pricing-wrapper .cost .value-wrapper .info {
+  font-family: "WorkSans", sans-serif;
+  font-size: 16px;
+  color: #45d5ec;
+}
+.configurator-box .configurator-box-wrapper .summary .pricing-wrapper .value {
+  font-family: "Video400", sans-serif;
+  font-size: 32px;
+  letter-spacing: -0.01em;
+  color: #45d5ec;
+}
+.configurator-box .configurator-box-wrapper .summary .pricing-wrapper .note {
+  font-family: "WorkSans", sans-serif;
+  font-size: 14px;
+  color: #45d5ec;
 }

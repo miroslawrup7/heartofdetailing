@@ -6,7 +6,7 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/main.css?cache_bust=1716661940904">
+    <link rel="stylesheet" href="./css/main.css?cache_bust=1716717040702">
     <link rel="shortcut icon" href="#">
 
     <title>Formularz</title>
@@ -17,64 +17,87 @@
     <div class="container">
         <div class="head-button">Konfigurator kosztów</div>
         <div class="configurator-box">
-            <div class="main">
-                <div class="head-box">
-                    <div class="titles">
-                        <h3 class="title">Wybierz stan swojego pojazdu:</h3>
-                        <div class="subtitle">(jednokrotny wybór)</div>
+            <div class="configurator-box-wrapper">
+                <div class="main">
+                    <div class="head-box">
+                        <div class="titles">
+                            <h3 class="title">Wybierz stan swojego pojazdu:</h3>
+                            <div class="subtitle">(jednokrotny wybór)</div>
+                        </div>
+                        <div class="steps-bars">
+                            <div class="desc">Etap:</div>
+                            <div class="bars">
+                                <div class="bar active"></div>
+                                <div class="bar"></div>
+                                <div class="bar"></div>
+                                <div class="bar"></div>
+                                <div class="bar"></div>
+                                <div class="bar"></div>
+                                <div class="bar"></div>
+                                <div class="bar"></div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="steps-bars">
-                        <div class="desc">Etap:</div>
-                        <div class="bars">
-                            <div class="bar active"></div>
-                            <div class="bar"></div>
-                            <div class="bar"></div>
-                            <div class="bar"></div>
-                            <div class="bar"></div>
-                            <div class="bar"></div>
-                            <div class="bar"></div>
-                            <div class="bar"></div>
+                    <div class="content">
+                        <div class="box">
+                            <div class="icon">
+                                <img src="./img/icons/car-new.svg" alt="car-new">
+                            </div>
+                            <div class="text-box">
+                                <h5 class="main-text">Nowe</h5>
+                                <div class="sub-text">(przebieg poniżej 1 000 km)</div>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="icon">
+                                <img src="./img/icons/car-used.svg" alt="car-used">
+                            </div>
+                            <div class="text-box">
+                                <h5 class="main-text">Używane</h5>
+                                <div class="sub-text">(przebieg powyżej 1 000 km)</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <div class="buttons-wrapper left">
+                            <div class="button prev"></div>
+                        </div>
+                        <div class="buttons-wrapper right">
+                            <div class="button skip"></div>
+                            <div class="button next">
+                                <p>Dalej</p>
+                                <img src="./img/icons/triangle-next.svg" alt="triangle-next">
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="content">
-                    <div class="box">
-                        <div class="icon">
-                            <img src="./img/icons/car-new.svg" alt="car-new">
-                        </div>
-                        <div class="text-box">
-                            <h5 class="main-text">Nowe</h5>
-                            <div class="sub-text">(przebieg poniżej 1 000 km)</div>
-                        </div>
+                <div class="summary">
+                    <div class="notes-wrapper">
+                        <div class="note">*Każda wycena wymaga weryfikacji stanu samochodu przed podaniem ostatecznej
+                            ceny.
+                            Podane ceny są brutto/netto na podstawie art. 113 ust. 1 i 9 ustawy o VAT. Liczba godzin
+                            oznacza
+                            szacowany czas na wykonanie usługi.</div>
                     </div>
-                    <div class="box">
-                        <div class="icon">
-                            <img src="./img/icons/car-used.svg" alt="car-used">
+                    <div class="pricing-wrapper">
+                        <div class="hours">
+                            <div class="value">0</div>
+                            <div class="note">Szacowana liczba godzin*</div>
                         </div>
-                        <div class="text-box">
-                            <h5 class="main-text">Używane</h5>
-                            <div class="sub-text">(przebieg powyżej 1 000 km)</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="buttons">
-                    <div class="buttons-wrapper left">
-                        <div class="button prev"></div>
-                    </div>
-                    <div class="buttons-wrapper right">
-                        <div class="button skip"></div>
-                        <div class="button next">
-                            <p>Dalej</p>
-                            <img src="./img/icons/triangle-next.svg" alt="triangle-next">
+                        <div class="cost">
+                            <div class="value-wrapper">
+                                <div class="value">0,00 pln</div>
+                                <div class="info">(bez VAT)</div>
+                            </div>
+                            <div class="note">Szacowany koszt*</div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="summary"></div>
         </div>
     </div>
 
-    <script src="./js/main.js?cache_bust=1716661940904"></script>
+    <script src="./js/main.js?cache_bust=1716717040702"></script>
 </body>
 
 </html>
