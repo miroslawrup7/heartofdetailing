@@ -42,7 +42,7 @@
                                 </div>
                             </div>
                             <div class="content">
-                                <div class="box xl-w-50">
+                                <div class="box select-box xl-w-50">
                                     <div class="icon">
                                         <img src="./img/icons/car-new.svg" alt="car-new">
                                     </div>
@@ -51,7 +51,7 @@
                                         <div class="sub-text">(przebieg poniżej 1 000 km)</div>
                                     </div>
                                 </div>
-                                <div class="box xl-w-50">
+                                <div class="box select-box xl-w-50">
                                     <div class="icon">
                                         <img src="./img/icons/car-used.svg" alt="car-used">
                                     </div>
@@ -62,7 +62,7 @@
                                 </div>
                             </div>
                             <div class="buttons">
-                                <div class="buttons-wrapper left hidden">
+                                <div class="buttons-wrapper left">
                                     <div class="button prev"></div>
                                 </div>
                                 <div class="buttons-wrapper right">
@@ -127,7 +127,7 @@
                                 </div>
                             </div>
                             <div class="content">
-                                <div class="box xl-w-25">
+                                <div class="box select-box xl-w-25">
                                     <div class="icon">
                                         <img src="./img/icons/car-small.svg" alt="car-small">
                                     </div>
@@ -136,7 +136,7 @@
                                         <div class="sub-text">np. Audi A1, Toyota Yaris, Fiat 500</div>
                                     </div>
                                 </div>
-                                <div class="box xl-w-25">
+                                <div class="box select-box xl-w-25">
                                     <div class="icon">
                                         <img src="./img/icons/car-medium.svg" alt="car-medium">
                                     </div>
@@ -145,7 +145,7 @@
                                         <div class="sub-text">np. Renault Megane 3 Coupe, Seat Ibiza, Ford Focus</div>
                                     </div>
                                 </div>
-                                <div class="box xl-w-25">
+                                <div class="box select-box xl-w-25">
                                     <div class="icon">
                                         <img src="./img/icons/car-big.svg" alt="car-big">
                                     </div>
@@ -154,7 +154,7 @@
                                         <div class="sub-text">np. Audi A5, Audi A7, BMW X5</div>
                                     </div>
                                 </div>
-                                <div class="box xl-w-25">
+                                <div class="box select-box xl-w-25">
                                     <div class="icon">
                                         <img src="./img/icons/car-bigest.svg" alt="car-bigest">
                                     </div>
@@ -166,9 +166,11 @@
                             </div>
                             <div class="buttons">
                                 <div class="buttons-wrapper left">
-                                    <div class="button prev">
-                                        <img src="./img/icons/triangle-prev.svg" alt="triangle-next">
-                                        <p>Wstecz</p>
+                                    <div class="button-parent-transparent">
+                                        <div class="button prev">
+                                            <img src="./img/icons/triangle-prev.svg" alt="triangle-next">
+                                            <p>Wstecz</p>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="buttons-wrapper right">
@@ -233,8 +235,15 @@
                                 </div>
                             </div>
                             <div class="content">
-                                <div class="box xl-w-33 gap-16">
-                                    <div class="checkbox">o</div>
+                                <div class="box select-box xl-w-33 gap-16">
+
+                                    <div class="checkbox-container">
+                                        <label class="checkbox">
+                                            <input type="checkbox" id="checkbox_1" name="checkbox" autocomplete="off">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+
                                     <div class="content-box">
                                         <div class="text-box">
                                             <h5 class="main-text">Stylizacja</h5>
@@ -253,8 +262,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="box xl-w-33 gap-16">
-                                    <div class="checkbox">o</div>
+                                <div class="box select-box xl-w-33 gap-16">
+                                    <div class="checkbox-container">
+                                        <label class="checkbox">
+                                            <input type="checkbox" id="checkbox_2" name="checkbox" autocomplete="off">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
                                     <div class="content-box">
                                         <div class="text-box">
                                             <h5 class="main-text">Renowacja i ochrona lakieru</h5>
@@ -274,8 +288,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="box xl-w-33 gap-16">
-                                    <div class="checkbox">o</div>
+                                <div class="box select-box xl-w-33 gap-16">
+                                    <div class="checkbox-container">
+                                        <label class="checkbox">
+                                            <input type="checkbox" id="checkbox_2" name="checkbox" autocomplete="off">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
                                     <div class="content-box">
                                         <div class="text-box">
                                             <h5 class="main-text">Bezbarwne folie ochronne ppf</h5>
@@ -294,8 +313,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="box xl-w-33 gap-16">
-                                    <div class="checkbox">o</div>
+                                <div class="box select-box xl-w-33 gap-16">
+                                    <div class="checkbox-container">
+                                        <label class="checkbox">
+                                            <input type="checkbox" id="checkbox_2" name="checkbox" autocomplete="off">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
                                     <div class="content-box">
                                         <div class="text-box">
                                             <h5 class="main-text">Wnętrze</h5>
@@ -312,8 +336,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="box xl-w-33 gap-16">
-                                    <div class="checkbox">o</div>
+                                <div class="box select-box xl-w-33 gap-16">
+                                    <div class="checkbox-container">
+                                        <label class="checkbox">
+                                            <input type="checkbox" id="checkbox_2" name="checkbox" autocomplete="off">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
                                     <div class="content-box">
                                         <div class="text-box">
                                             <h5 class="main-text">Dodatkowe</h5>
@@ -334,13 +363,20 @@
                             </div>
                             <div class="buttons">
                                 <div class="buttons-wrapper left">
-                                    <div class="button prev">
-                                        <img src="./img/icons/triangle-prev.svg" alt="triangle-next">
-                                        <p>Wstecz</p>
+                                    <div class="button-parent-transparent">
+                                        <div class="button prev">
+                                            <img src="./img/icons/triangle-prev.svg" alt="triangle-next">
+                                            <p>Wstecz</p>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="buttons-wrapper right">
-                                    <div class="button skip"></div>
+                                    <div class="button-parent-transparent">
+                                        <div class="button skip">
+                                            <p>Pomiń</p>
+                                            <img src="./img/icons/triangle-skip.svg" alt="triangle-skip">
+                                        </div>
+                                    </div>
                                     <div class="button next">
                                         <p>Dalej</p>
                                         <img src="./img/icons/triangle-next.svg" alt="triangle-next">

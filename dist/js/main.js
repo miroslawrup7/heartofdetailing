@@ -36,7 +36,7 @@ buttonNextArrLoc.forEach((elem) => {
         }
 
         if (allowNext) {
-            formPagesLoc.style.left = newLeftValue - 100 + "px"
+            formPagesLoc.style.left = newLeftValue - 150 + "px"
             setTimeout(()=> {
                 formPagesLoc.style.transition = "left 0.3s ease-out";
                 formPagesLoc.style.left = newLeftValue + "px"
@@ -63,7 +63,7 @@ buttonPrevArrLoc.forEach((elem) => {
         const containerWidthWithoutBorder = containerWidth - leftContainerBorder - rightContainerBorder - leftPagesBorder - rightPagesBorder
         const newLeftValue = actualPosition + containerWidthWithoutBorder
 
-        formPagesLoc.style.left = newLeftValue + 100 + "px"
+        formPagesLoc.style.left = newLeftValue + 150 + "px"
         setTimeout(()=> {
             formPagesLoc.style.transition = "left 0.3s ease-out";
             formPagesLoc.style.left = newLeftValue + "px"
@@ -71,5 +71,16 @@ buttonPrevArrLoc.forEach((elem) => {
         setTimeout(()=> {
             formPagesLoc.style.transition = "left 0.5s ease-in";
         },600)
+    })
+})
+
+// rozszerzenie działania checboxów
+
+const inputSelectBoxArrLoc = document.querySelectorAll(".select-box input")
+
+inputSelectBoxArrLoc.forEach((elem) => {
+
+    elem.closest(".select-box").addEventListener("click", ()=>{
+        elem.click()
     })
 })
