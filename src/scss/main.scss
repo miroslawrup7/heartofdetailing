@@ -287,6 +287,20 @@ html {
 
                     .icon {
                         display: flex;
+
+
+                        &.new-car {
+                            background-image: url("../img/icons/car-new.svg");
+                            background-repeat: no-repeat;
+                            height: 48px;
+                        }
+
+                        &.used-car {
+                            background-image: url("../img/icons/car-used.svg");
+                            background-repeat: no-repeat;
+                            height: 48px;
+                        }
+
                     }
 
                     .content-box {
@@ -333,11 +347,64 @@ html {
                     }
                 }
 
-                .select-box:hover {
-                    background-color: #FEFEFE;
-                    background-image: radial-gradient(117% 117% at 75% 157%, rgba(69, 213, 236, 0.3) 0%, rgba(69, 213, 236, 0) 100%);
-                    border: 1px solid #45D5EC40;
-                    box-shadow: 0px 0px 8px 0px #45D5EC3D;
+                .select-box {
+                    .circle {
+                        border: 2px solid $niebieski500;
+                        width: 48px;
+                        height: 48px;
+                        border-radius: 50%;
+                        background-color: transparent;
+                    }
+
+                    &.selected {
+                        background-color: $niebieski500;
+                        border: 1px solid #A5FAF340;
+                        box-shadow: 0px 0px 16px 0px #A5FAF37A inset, 0px 4px 8px 0px #A5FAF33D;
+
+                        .text-box {
+                            .main-text {
+                                color: $bialy200;
+                            }
+
+                            .sub-text {
+                                color: $bialy200;
+                            }
+                        }
+
+                        .features-list {
+                            .list-title {
+                                color: $bialy200;
+                            }
+
+                            ul {
+                                list-style-image: url("../img/icons/triangle-list-white.svg");
+
+                                li {
+                                    color: $bialy200;
+                                }
+                            }
+                        }
+
+                        .new-car {
+                            background-image: url("../img/icons/car-new-white.svg");
+                        }
+
+                        .used-car {
+                            background-image: url("../img/icons/car-used-white.svg");
+                        }
+
+                        .circle {
+                            border: 2px solid $bialy200;
+                        }
+
+                    }
+
+                    &:not(.selected):hover {
+                        background-color: #FEFEFE;
+                        background-image: radial-gradient(117% 117% at 75% 157%, rgba(69, 213, 236, 0.3) 0%, rgba(69, 213, 236, 0) 100%);
+                        border: 1px solid #45D5EC40;
+                        box-shadow: 0px 0px 8px 0px #45D5EC3D;
+                    }
                 }
             }
 
