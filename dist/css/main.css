@@ -113,6 +113,9 @@ html {
   border-width: 0 4px 4px 0;
   transform: rotate(45deg);
 }
+.checkbox-container label {
+  cursor: pointer;
+}
 .checkbox-container .label-text {
   display: inline-block;
   font-size: 18px;
@@ -122,7 +125,6 @@ html {
 
 .form-pages {
   height: 100%;
-  width: 100%;
   display: flex;
   position: absolute;
   transition: left 0.5s ease-in;
@@ -328,48 +330,6 @@ html {
   border: 1px solid rgba(69, 213, 236, 0.2509803922);
   box-shadow: 0px 0px 8px 0px rgba(69, 213, 236, 0.2392156863);
 }
-.configurator-box .configurator-box-wrapper .main .buttons {
-  display: flex;
-  gap: 32px;
-  justify-content: space-between;
-}
-.configurator-box .configurator-box-wrapper .main .buttons .buttons-wrapper {
-  display: flex;
-  gap: 12px;
-}
-.configurator-box .configurator-box-wrapper .main .buttons .buttons-wrapper .button-parent-transparent {
-  background-image: linear-gradient(white, white), radial-gradient(173.15% 173.15% at 24.76% 186.11%, #F51542 0%, rgba(245, 21, 66, 0) 100%), linear-gradient(0deg, #FCA311, #FCA311);
-  border: double 2px transparent;
-  background-origin: border-box;
-  background-clip: content-box, border-box, border-box;
-  border-radius: 50px;
-}
-.configurator-box .configurator-box-wrapper .main .buttons .buttons-wrapper .button {
-  gap: 10px;
-  padding: 14px 32px;
-  border-radius: 50px;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-}
-.configurator-box .configurator-box-wrapper .main .buttons .buttons-wrapper .button.next {
-  background-color: #FCA311;
-  background-image: radial-gradient(170% 170% at 25% 180%, #F51542, rgba(245, 21, 66, 0));
-  box-shadow: inset 4px 4px 8px 0px rgba(252, 209, 156, 0.2);
-  filter: drop-shadow(0px 0px 8px rgba(247, 232, 190, 0.1607843137));
-}
-.configurator-box .configurator-box-wrapper .main .buttons .buttons-wrapper .button.next p {
-  color: #FEFEFE;
-}
-.configurator-box .configurator-box-wrapper .main .buttons .buttons-wrapper .button.prev p, .configurator-box .configurator-box-wrapper .main .buttons .buttons-wrapper .button.skip p {
-  color: #FCA311;
-}
-.configurator-box .configurator-box-wrapper .main .buttons .buttons-wrapper .button p {
-  font-family: "Video300", sans-serif;
-}
-.configurator-box .configurator-box-wrapper .main .buttons .buttons-wrapper .button img {
-  height: 9px;
-}
 .configurator-box .configurator-box-wrapper .summary {
   display: flex;
   padding-bottom: 24px;
@@ -412,4 +372,192 @@ html {
   font-family: "WorkSans", sans-serif;
   font-size: 14px;
   color: #45D5EC;
+}
+.configurator-box .configurator-box-wrapper .summary-box {
+  display: flex;
+  flex-direction: column;
+}
+.configurator-box .configurator-box-wrapper .summary-box .items-box {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.configurator-box .configurator-box-wrapper .summary-box .items-box .item {
+  display: flex;
+  flex-direction: column;
+}
+.configurator-box .configurator-box-wrapper .summary-box .items-box .item .top {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #CCCCCF;
+  padding-bottom: 6px;
+  align-items: flex-end;
+}
+.configurator-box .configurator-box-wrapper .summary-box .items-box .item .top .item-name {
+  font-family: "WorkSans", sans-serif;
+  font-size: 24px;
+  color: #020206;
+  font-weight: normal;
+}
+.configurator-box .configurator-box-wrapper .summary-box .items-box .item .top .item-value {
+  font-family: "Video400", sans-serif;
+  font-size: 32px;
+  letter-spacing: -0.01em;
+  color: #45D5EC;
+  font-weight: normal;
+  width: 280px;
+}
+.configurator-box .configurator-box-wrapper .summary-box .items-box .item .bottom {
+  padding-top: 6px;
+  font-family: "WorkSans", sans-serif;
+  font-size: 16px;
+  color: #020206;
+  display: flex;
+  align-items: flex-start;
+}
+.configurator-box .configurator-box-wrapper .summary-box .total-price {
+  width: 280px;
+  display: flex;
+  align-self: flex-end;
+  flex-direction: column;
+}
+.configurator-box .configurator-box-wrapper .summary-box .total-price .top {
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+}
+.configurator-box .configurator-box-wrapper .summary-box .total-price .top .value {
+  font-family: "Video400", sans-serif;
+  font-size: 32px;
+  letter-spacing: -0.01em;
+  color: #45D5EC;
+}
+.configurator-box .configurator-box-wrapper .summary-box .total-price .top .tax-info {
+  font-family: "WorkSans", sans-serif;
+  font-size: 16px;
+  color: #45D5EC;
+}
+.configurator-box .configurator-box-wrapper .summary-box .total-price .bottom {
+  font-family: "WorkSans", sans-serif;
+  font-size: 14px;
+  color: #45D5EC;
+}
+.configurator-box .configurator-box-wrapper .copy-to-email {
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  padding: 32px 24px;
+  gap: 24px;
+  border: 1px solid rgba(204, 204, 207, 0.2509803922);
+  box-shadow: 0px 8px 16px 0px rgba(204, 204, 207, 0.2392156863);
+  background: linear-gradient(0deg, #FEFEFE, #FEFEFE), radial-gradient(116.77% 116.77% at 74.48% 156.71%, rgba(204, 204, 207, 0.3) 0%, rgba(204, 204, 207, 0) 100%);
+}
+.configurator-box .configurator-box-wrapper .copy-to-email .title {
+  font-family: "WorkSans", sans-serif;
+  font-size: 24px;
+  color: #020206;
+  font-weight: normal;
+}
+.configurator-box .configurator-box-wrapper .copy-to-email .input-container {
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+}
+.configurator-box .configurator-box-wrapper .copy-to-email .input-container input {
+  padding: 14px 32px;
+  border: 1px solid #020206;
+  box-shadow: 4px 4px 8px 0px rgba(252, 209, 156, 0.2) inset, 0px 0px 8px 0px rgba(247, 232, 190, 0.1607843137);
+  font-family: "Video300", sans-serif;
+  font-size: 16px;
+  color: #020206;
+  border-radius: 52px;
+}
+.configurator-box .configurator-box-wrapper .copy-to-email .input-container input::-moz-placeholder {
+  color: #B2B2B4;
+  opacity: 1;
+}
+.configurator-box .configurator-box-wrapper .copy-to-email .input-container input:-ms-input-placeholder {
+  color: #B2B2B4;
+  opacity: 1;
+}
+.configurator-box .configurator-box-wrapper .copy-to-email .input-container input::placeholder {
+  color: #B2B2B4;
+  opacity: 1;
+}
+.configurator-box .configurator-box-wrapper .copy-to-email .input-container .checkbox-and-button {
+  display: flex;
+  gap: 24px;
+}
+.configurator-box .configurator-box-wrapper .copy-to-email .input-container .checkbox-and-button .checkbox-container {
+  display: flex;
+  gap: 12px;
+}
+.configurator-box .configurator-box-wrapper .copy-to-email .input-container .checkbox-and-button .checkbox-container .checkbox {
+  width: 28px;
+  height: 28px;
+}
+.configurator-box .configurator-box-wrapper .copy-to-email .input-container .checkbox-and-button .checkbox-container .checkbox .checkmark {
+  background-color: #fff;
+  border: 1px solid #CCCCCF;
+}
+.configurator-box .configurator-box-wrapper .copy-to-email .input-container .checkbox-and-button .checkbox-container .checkbox input:checked ~ .checkmark {
+  background-color: #45D5EC;
+  border: 1px #45D5EC solid;
+}
+.configurator-box .configurator-box-wrapper .copy-to-email .input-container .checkbox-and-button .checkbox-container .checkbox .checkmark:after {
+  left: 10px;
+  top: 5px;
+  width: 4px;
+  height: 11px;
+  border: solid #fff;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+.configurator-box .configurator-box-wrapper .copy-to-email .input-container .checkbox-and-button .checkbox-container label:nth-of-type(2) {
+  font-family: "WorkSans", sans-serif;
+  font-size: 10px;
+  color: #B2B2B4;
+}
+
+.buttons {
+  display: flex;
+  gap: 32px;
+  justify-content: space-between;
+}
+.buttons .buttons-wrapper {
+  display: flex;
+  gap: 12px;
+}
+.buttons .buttons-wrapper .button-parent-transparent {
+  background-image: linear-gradient(white, white), radial-gradient(173.15% 173.15% at 24.76% 186.11%, #F51542 0%, rgba(245, 21, 66, 0) 100%), linear-gradient(0deg, #FCA311, #FCA311);
+  border: double 2px transparent;
+  background-origin: border-box;
+  background-clip: content-box, border-box, border-box;
+  border-radius: 50px;
+}
+.buttons .buttons-wrapper .button {
+  gap: 10px;
+  padding: 14px 32px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.buttons .buttons-wrapper .button.next {
+  background-color: #FCA311;
+  background-image: radial-gradient(170% 170% at 25% 180%, #F51542, rgba(245, 21, 66, 0));
+  box-shadow: inset 4px 4px 8px 0px rgba(252, 209, 156, 0.2);
+  filter: drop-shadow(0px 0px 8px rgba(247, 232, 190, 0.1607843137));
+}
+.buttons .buttons-wrapper .button.next p {
+  color: #FEFEFE;
+}
+.buttons .buttons-wrapper .button.prev p, .buttons .buttons-wrapper .button.skip p {
+  color: #FCA311;
+}
+.buttons .buttons-wrapper .button p {
+  font-family: "Video300", sans-serif;
+}
+.buttons .buttons-wrapper .button img {
+  height: 9px;
 }

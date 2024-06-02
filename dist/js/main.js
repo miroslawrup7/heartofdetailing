@@ -36,6 +36,9 @@ buttonNextArrLoc.forEach((elem) => {
         if (actualPage.classList.contains("page3")) {
             allowNext = true
         }
+        if (actualPage.classList.contains("page4")) {
+            allowNext = true
+        }
 
         if (allowNext) {
             formPagesLoc.style.left = newLeftValue - 100 + "px"
