@@ -28,9 +28,9 @@ html {
 }
 
 .container {
-  width: 1264px;
+  width: 1266px;
   margin: 0 auto;
-  min-height: 1500px;
+  min-height: 5000px;
   height: 100vh;
   position: relative;
   overflow: hidden;
@@ -127,7 +127,6 @@ html {
   height: 100%;
   display: flex;
   position: absolute;
-  transition: left 0.5s ease-in;
   top: 0;
   left: 0;
 }
@@ -152,6 +151,7 @@ html {
   background-origin: border-box;
   background-clip: content-box, border-box;
   border-radius: 12px;
+  width: 1266px;
 }
 .configurator-box .configurator-box-wrapper {
   padding: 64px 48px;
@@ -163,6 +163,9 @@ html {
   display: flex;
   flex-direction: column;
   gap: 32px;
+}
+.configurator-box .configurator-box-wrapper .main.gap48 {
+  gap: 48px;
 }
 .configurator-box .configurator-box-wrapper .main .head-box {
   display: flex;
@@ -240,6 +243,9 @@ html {
 .configurator-box .configurator-box-wrapper .main .content .box.gap-16 {
   gap: 16px;
 }
+.configurator-box .configurator-box-wrapper .main .content .box.gap-24 {
+  gap: 24px;
+}
 .configurator-box .configurator-box-wrapper .main .content .box .icon {
   display: flex;
 }
@@ -252,6 +258,17 @@ html {
   background-image: url("../img/icons/car-used.svg");
   background-repeat: no-repeat;
   height: 48px;
+}
+.configurator-box .configurator-box-wrapper .main .content .box .image {
+  display: flex;
+  width: 100%;
+  height: 120px;
+}
+.configurator-box .configurator-box-wrapper .main .content .box .image img {
+  width: 100%;
+  border-radius: 8px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .configurator-box .configurator-box-wrapper .main .content .box .content-box {
   display: flex;
@@ -329,6 +346,16 @@ html {
   background-image: radial-gradient(117% 117% at 75% 157%, rgba(69, 213, 236, 0.3) 0%, rgba(69, 213, 236, 0) 100%);
   border: 1px solid rgba(69, 213, 236, 0.2509803922);
   box-shadow: 0px 0px 8px 0px rgba(69, 213, 236, 0.2392156863);
+}
+.configurator-box .configurator-box-wrapper .main .additional-wrapper-out {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+.configurator-box .configurator-box-wrapper .main .additional-wrapper-out .additional-wrapper-in {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
 }
 .configurator-box .configurator-box-wrapper .summary {
   display: flex;

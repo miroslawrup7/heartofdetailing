@@ -41,13 +41,13 @@ html {
 }
 
 .container {
-    width: 1264px;
+    width: 1266px;
     margin: 0 auto;
     // min-height: fit-content;
-    min-height: 1500px;
+    min-height: 5000px;
     height: 100vh; // zmień na 100% po umieszczeniu w Wordpress
     position: relative;
-    overflow: hidden;
+    overflow: hidden; // tymczasowo
     margin: 50px auto; // do usunięcia
 }
 
@@ -161,7 +161,7 @@ html {
     // width: 100%;
     display: flex;
     position: absolute;
-    transition: left 0.5s ease-in;
+    // transition: left 0.5s ease-in;
     top: 0;
     left: 0;
 
@@ -187,6 +187,7 @@ html {
     background-origin: border-box;
     background-clip: content-box, border-box;
     border-radius: 12px;
+    width: 1266px;
 
     .configurator-box-wrapper {
         padding: 64px 48px;
@@ -198,6 +199,10 @@ html {
             display: flex;
             flex-direction: column;
             gap: 32px;
+
+            &.gap48 {
+                gap: 48px;
+            }
 
             .head-box {
                 display: flex;
@@ -288,6 +293,10 @@ html {
                         gap: 16px;
                     }
 
+                    &.gap-24 {
+                        gap: 24px;
+                    }
+
                     .icon {
                         display: flex;
 
@@ -302,7 +311,18 @@ html {
                             background-repeat: no-repeat;
                             height: 48px;
                         }
+                    }
 
+                    .image {
+                        display: flex;
+                        width: 100%;
+                        height: 120px;
+
+                        img {
+                            width: 100%;
+                            border-radius: 8px;
+                            object-fit: cover;
+                        }
                     }
 
                     .content-box {
@@ -410,7 +430,17 @@ html {
                 }
             }
 
+            .additional-wrapper-out {
+                display: flex;
+                flex-direction: column;
+                gap: 64px;
 
+                .additional-wrapper-in {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 32px;
+                }
+            }
         }
 
         .summary {
