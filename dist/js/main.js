@@ -29,9 +29,34 @@ let page3_1_5; // zmiana koloru dachu
 let page3_1_6; // zmiana koloru lusterek
 let page3_1Array = [page3_1_1, page3_1_2, page3_1_3, page3_1_4, page3_1_5, page3_1_6]
 
+//renowacja i ochrona lakieru
+let page3_2_1; // stan lakieru: nowy 1, 1-6m 2, 6-12m 3, pow.6 4
+let page3_2_2; // efekt: 1-etapowe odśw. lakieru 1, 2-etapowa korekcja lakieru
+let page3_2_3; // poziom zabezpieczenia: woskowanie 1, roczna ceramika 2, 3-letnia ceramika 3, 4-letnia ceramika 4
+
+//bezbarwne folie ochronne ppf
+let page3_3_1; // pakiety: bikini 1, full front 2, full body 3
+
+//wnętrze
+let page3_4_1; // podstawowe czyszcz.
+let page3_4_2; // tap. materiał.
+let page3_4_3; // tap. skórzana
+let page3_4_4; // czyszcz i zab. skór
+let page3_4_5; // pranie i impreg. tap. mater.
+let page3_4Array = [page3_4_1, page3_4_2, page3_4_3, page3_4_4, page3_4_5]
+
+//dodatkowe
+let page3_5_1; // reflekt. ceram
+let page3_5_2; // reflekt. folia
+let page3_5_3; // felgi ceram
+let page3_5_4; // szyby ceram
+let page3_5_5; // impreg. dachu
+let page3_5_6; // wosk. lakieru
+let page3_5Array = [page3_5_1, page3_5_2, page3_5_3, page3_5_4, page3_5_5, page3_5_6]
+
 // przewijanie stron
 
-const movePage = (factor) => {
+const movePage = (factor, direction) => {
 
     const actualPosition = Number(getComputedStyle(formPagesLoc).left.slice(0, getComputedStyle(formPagesLoc).left.length-2))
     const containerWidth = Number(getComputedStyle(containerLoc).width.slice(0, getComputedStyle(containerLoc).width.length-2))
@@ -42,25 +67,23 @@ const movePage = (factor) => {
     const rightPagesBorder = Number(getComputedStyle(formPagesLoc).borderRightWidth.slice(0, getComputedStyle(formPagesLoc).borderRightWidth.length-2))
 
     const containerWidthWithoutBorder = containerWidth * factor - leftContainerBorder - rightContainerBorder - leftPagesBorder - rightPagesBorder
-    const newLeftValue = actualPosition - containerWidthWithoutBorder
+    const newLeftValue = actualPosition + direction * containerWidthWithoutBorder
 
-    // if (allowNext) {
-        let animation_time = 0.5 * factor
-        let delay_time = 500 * factor
-        console.log(animation_time)
+    let animation_time = 0.5 
+    let delay_time = 500
+    
+    formPagesLoc.style.transition = `left ${animation_time}s ease-out`; // animacja nadmiarowa w prawo
+    formPagesLoc.style.left = newLeftValue + direction * 100 + "px"
+
+    setTimeout(()=> {
+        formPagesLoc.style.transition = `left 0.5s ease-out`; // animacja wyrównania z powrotem z nadmiaru
+        formPagesLoc.style.left = newLeftValue + "px"
+    },delay_time)
+
+    setTimeout(()=> {
+        formPagesLoc.style.transition = `left ${animation_time}s ease-in`; // przywrócenie pierwotnego czasu animacji
+    },delay_time+100)
         
-        formPagesLoc.style.transition = `left ${animation_time}s ease-out`;
-        formPagesLoc.style.left = newLeftValue - 100 + "px"
-        setTimeout(()=> {
-            formPagesLoc.style.transition = `left ${animation_time}s ease-out`;
-            formPagesLoc.style.left = newLeftValue + "px"
-        },delay_time)
-        setTimeout(()=> {
-            formPagesLoc.style.transition = `left ${animation_time}s ease-in`;
-        },delay_time+100)
-        
-        // allowNext = false
-    // }
 }
 
 buttonNextArrLoc.forEach((elem) => {
@@ -68,31 +91,89 @@ buttonNextArrLoc.forEach((elem) => {
 
         const actualPage = e.target.closest(".form-page")
 
-        // let allowNext = false
-
         if (actualPage.classList.contains("page1")) {
             if (page1 !== undefined) {
-                movePage(1)
+                movePage(1, -1)
             }
         }
 
         if (actualPage.classList.contains("page2")) {
             if (page2 !== undefined) {
-                movePage(1)
+                movePage(1, -1)
             }
         }
 
         if (actualPage.classList.contains("page3")) {
             if (page3Array.some((item)=>(item !== undefined && item !== false))) {
                 if (page3_1) {
-                    movePage(1)
+                    movePage(1, -1)
+                } else if (page3_2) {
+                    movePage(2, -1)
+                } else if (page3_3) {
+                    movePage(3, -1)
+                } else if (page3_4) {
+                    movePage(4, -1)
+                } else if (page3_5) {
+                    movePage(5, -1)
+                } else {
+                    movePage(6, -1)
                 }
             }
         }
 
         if (actualPage.classList.contains("page3_1")) {
             if (page3_1Array.some((item)=>(item !== undefined && item !== false))) {
-                movePage(1)
+                if (page3_2) {
+                    movePage(1, -1)
+                } else if (page3_3) {
+                    movePage(2, -1)
+                } else if (page3_4) {
+                    movePage(3, -1)
+                } else if (page3_5) {
+                    movePage(4, -1)
+                } else {
+                    movePage(5, -1)
+                }
+            }
+        }
+        if (actualPage.classList.contains("page3_2")) {
+            if (page3_2_1 !== undefined &&
+                page3_2_2 !== undefined &&
+                page3_2_3 !== undefined) {
+                    if (page3_3) {
+                        movePage(1, -1)
+                    } else if (page3_4) {
+                        movePage(2, -1)
+                    } else if (page3_5) {
+                        movePage(3, -1)
+                    } else {
+                        movePage(4, -1)
+                    }
+            }
+        }
+        if (actualPage.classList.contains("page3_3")) {
+            if (page3_3_1 !== undefined ){
+                if (page3_4) {
+                    movePage(1, -1)
+                } else if (page3_5) {
+                    movePage(2, -1)
+                } else {
+                    movePage(3, -1)
+                }
+            }
+        }
+        if (actualPage.classList.contains("page3_4")) {
+            if (page3_4Array.some((item)=>(item !== undefined && item !== false))) {
+                if (page3_5) {
+                    movePage(1, -1)
+                } else {
+                    movePage(2, -1)
+                }
+            }
+        }
+        if (actualPage.classList.contains("page3_5")) {
+            if (page3_5Array.some((item)=>(item !== undefined && item !== false))) {
+                movePage(1, -1)
             }
         }
     })
@@ -100,25 +181,85 @@ buttonNextArrLoc.forEach((elem) => {
 
 buttonPrevArrLoc.forEach((elem) => {
     elem.addEventListener("click", (e)=> {
-        const actualPosition = Number(getComputedStyle(formPagesLoc).left.slice(0, getComputedStyle(formPagesLoc).left.length-2))
-        const containerWidth = Number(getComputedStyle(containerLoc).width.slice(0, getComputedStyle(containerLoc).width.length-2))
-        const leftContainerBorder = Number(getComputedStyle(containerLoc).borderLeftWidth.slice(0, getComputedStyle(containerLoc).borderLeftWidth.length-2))
-        const rightContainerBorder = Number(getComputedStyle(containerLoc).borderRightWidth.slice(0, getComputedStyle(containerLoc).borderRightWidth.length-2))
+        // const actualPosition = Number(getComputedStyle(formPagesLoc).left.slice(0, getComputedStyle(formPagesLoc).left.length-2))
+        // const containerWidth = Number(getComputedStyle(containerLoc).width.slice(0, getComputedStyle(containerLoc).width.length-2))
+        // const leftContainerBorder = Number(getComputedStyle(containerLoc).borderLeftWidth.slice(0, getComputedStyle(containerLoc).borderLeftWidth.length-2))
+        // const rightContainerBorder = Number(getComputedStyle(containerLoc).borderRightWidth.slice(0, getComputedStyle(containerLoc).borderRightWidth.length-2))
 
-        const leftPagesBorder = Number(getComputedStyle(formPagesLoc).borderLeftWidth.slice(0, getComputedStyle(formPagesLoc).borderLeftWidth.length-2))
-        const rightPagesBorder = Number(getComputedStyle(formPagesLoc).borderRightWidth.slice(0, getComputedStyle(formPagesLoc).borderRightWidth.length-2))
+        // const leftPagesBorder = Number(getComputedStyle(formPagesLoc).borderLeftWidth.slice(0, getComputedStyle(formPagesLoc).borderLeftWidth.length-2))
+        // const rightPagesBorder = Number(getComputedStyle(formPagesLoc).borderRightWidth.slice(0, getComputedStyle(formPagesLoc).borderRightWidth.length-2))
 
-        const containerWidthWithoutBorder = containerWidth - leftContainerBorder - rightContainerBorder - leftPagesBorder - rightPagesBorder
-        const newLeftValue = actualPosition + containerWidthWithoutBorder
+        // const containerWidthWithoutBorder = containerWidth - leftContainerBorder - rightContainerBorder - leftPagesBorder - rightPagesBorder
+        // const newLeftValue = actualPosition + containerWidthWithoutBorder
 
-        formPagesLoc.style.left = newLeftValue + 100 + "px"
-        setTimeout(()=> {
-            formPagesLoc.style.transition = "left 0.3s ease-out";
-            formPagesLoc.style.left = newLeftValue + "px"
-        },550)
-        setTimeout(()=> {
-            formPagesLoc.style.transition = "left 0.5s ease-in";
-        },600)
+        const actualPage = e.target.closest(".form-page")
+
+        // formPagesLoc.style.left = newLeftValue + 100 + "px"
+        // setTimeout(()=> {
+        //     formPagesLoc.style.transition = "left 0.3s ease-out";
+        //     formPagesLoc.style.left = newLeftValue + "px"
+        // },550)
+        // setTimeout(()=> {
+        //     formPagesLoc.style.transition = "left 0.5s ease-in";
+        // },600)
+        if (actualPage.classList.contains("page2")) {
+            movePage(1, 1)
+        }
+        if (actualPage.classList.contains("page3")) {
+            movePage(1, 1)
+        }
+        if (actualPage.classList.contains("page3_1")) {
+            movePage(1, 1)
+        }
+        if (actualPage.classList.contains("page3_2")) {
+            if (page3_1Array.some((item)=>(item !== undefined && item !== false))) {
+               movePage(1, 1)
+            } else {
+                movePage(2, 1)
+            }
+        }
+        if (actualPage.classList.contains("page3_3")) {
+            if (page3_2_1 !== undefined &&
+                page3_2_2 !== undefined &&
+                page3_2_3 !== undefined) {
+                movePage(1, 1)
+            } else if (page3_1Array.some((item)=>(item !== undefined && item !== false))) {
+                movePage(2, 1)
+                }
+             else {
+                movePage(3, 1)
+            }
+        }
+        if (actualPage.classList.contains("page3_4")) {
+            if (page3_3_1 !== undefined ){
+                movePage(1, 1)
+            } else if (page3_2_1 !== undefined &&
+                page3_2_2 !== undefined &&
+                page3_2_3 !== undefined) {
+                movePage(2, 1)
+            } else if (page3_1Array.some((item)=>(item !== undefined && item !== false))) {
+                movePage(3, 1)
+                }
+             else {
+                movePage(4, 1)
+            }
+        }
+        if (actualPage.classList.contains("page3_5")) {
+            if (page3_4Array.some((item)=>(item !== undefined && item !== false))) {
+                movePage(1, 1)
+            } else if (page3_3_1 !== undefined ){
+                movePage(2, 1)
+            } else if (page3_2_1 !== undefined &&
+                page3_2_2 !== undefined &&
+                page3_2_3 !== undefined) {
+                movePage(3, 1)
+            } else if (page3_1Array.some((item)=>(item !== undefined && item !== false))) {
+                movePage(4, 1)
+                }
+             else {
+                movePage(5, 1)
+            }
+        }
     })
 })
 
@@ -139,6 +280,10 @@ buttonPrevArrLoc.forEach((elem) => {
 const changeVariableOnce = (varname, varvalue) => {
     if (varname === "page1") {page1 = varvalue}
     if (varname === "page2") {page2 = varvalue}
+    if (varname === "page3_2_1") {page3_2_1 = varvalue}
+    if (varname === "page3_2_2") {page3_2_2 = varvalue}
+    if (varname === "page3_2_3") {page3_2_3 = varvalue}
+    if (varname === "page3_3_1") {page3_3_1 = varvalue}
 }
 
 const changeVariableMulti = (varname, varvalue) => {
@@ -158,6 +303,24 @@ const changeVariableMulti = (varname, varvalue) => {
     if (varname === "page3_1_6") {page3_1_6 = varvalue}
 
     page3_1Array = [page3_1_1, page3_1_2, page3_1_3, page3_1_4, page3_1_5, page3_1_6]
+
+    if (varname === "page3_4_1") {page3_4_1 = varvalue}
+    if (varname === "page3_4_2") {page3_4_2 = varvalue}
+    if (varname === "page3_4_3") {page3_4_3 = varvalue}
+    if (varname === "page3_4_4") {page3_4_4 = varvalue}
+    if (varname === "page3_4_5") {page3_4_5 = varvalue}
+
+    page3_4Array = [page3_4_1, page3_4_2, page3_4_3, page3_4_4, page3_4_5]
+
+    if (varname === "page3_5_1") {page3_5_1 = varvalue}
+    if (varname === "page3_5_2") {page3_5_2 = varvalue}
+    if (varname === "page3_5_3") {page3_5_3 = varvalue}
+    if (varname === "page3_5_4") {page3_5_4 = varvalue}
+    if (varname === "page3_5_5") {page3_5_5 = varvalue}
+    if (varname === "page3_6_5") {page3_5_6 = varvalue}
+
+    page3_5Array = [page3_5_1, page3_5_2, page3_5_3, page3_5_4, page3_5_5, page3_5_6]
+
 }
 
 const contentArrLoc = document.querySelectorAll(".content")
@@ -183,12 +346,6 @@ contentArrLoc.forEach((elem)=>{
                     changeVariableMulti(el.dataset.var_name, true)
                 }
             }
-            console.log(
-                "page1", page1, 
-                "page2", page2, 
-                "page3_1", page3_1, "page3_2", page3_2, "page3_3", page3_3, "page3_4", page3_4, "page3_5", page3_5,
-                "page3_1_1", page3_1_1, "page3_1_2", page3_1_2, "page3_1_3", page3_1_3, "page3_1_4", page3_1_4, "page3_1_5", page3_1_5, "page3_1_6", page3_1_6
-            )
         })
     })
 })
