@@ -78,11 +78,11 @@ const movePage = (factor, direction) => {
     setTimeout(()=> {
         formPagesLoc.style.transition = `left 0.5s ease-out`; // animacja wyrównania z powrotem z nadmiaru
         formPagesLoc.style.left = newLeftValue + "px"
-    },delay_time)
+    }, delay_time)
 
     setTimeout(()=> {
         formPagesLoc.style.transition = `left ${animation_time}s ease-in`; // przywrócenie pierwotnego czasu animacji
-    },delay_time+100)
+    }, delay_time + 100)
         
 }
 
@@ -90,6 +90,12 @@ buttonNextArrLoc.forEach((elem) => {
     elem.addEventListener("click", (e)=> {
 
         const actualPage = e.target.closest(".form-page")
+
+        formPageArrLoc.forEach((elem)=> {
+            if (elem !== actualPage) {
+                elem.scrollTop = 0
+            }
+        })
 
         if (actualPage.classList.contains("page1")) {
             if (page1 !== undefined) {
@@ -105,70 +111,75 @@ buttonNextArrLoc.forEach((elem) => {
 
         if (actualPage.classList.contains("page3")) {
             if (page3Array.some((item)=>(item !== undefined && item !== false))) {
-                if (page3_1) {
+                // if (page3_1) {
                     movePage(1, -1)
-                } else if (page3_2) {
-                    movePage(2, -1)
-                } else if (page3_3) {
-                    movePage(3, -1)
-                } else if (page3_4) {
-                    movePage(4, -1)
-                } else if (page3_5) {
-                    movePage(5, -1)
-                } else {
-                    movePage(6, -1)
-                }
+                // }
+                // } else if (page3_2) {
+                //     movePage(2, -1)
+                // } else if (page3_3) {
+                //     movePage(3, -1)
+                // } else if (page3_4) {
+                //     movePage(4, -1)
+                // } else if (page3_5) {
+                //     movePage(5, -1)
+                // } else {
+                //     movePage(6, -1)
+                // }
             }
         }
 
         if (actualPage.classList.contains("page3_1")) {
             if (page3_1Array.some((item)=>(item !== undefined && item !== false))) {
-                if (page3_2) {
+                // if (page3_2) {
                     movePage(1, -1)
-                } else if (page3_3) {
-                    movePage(2, -1)
-                } else if (page3_4) {
-                    movePage(3, -1)
-                } else if (page3_5) {
-                    movePage(4, -1)
-                } else {
-                    movePage(5, -1)
-                }
+                // } 
+                // else if (page3_3) {
+                //     movePage(2, -1)
+                // } else if (page3_4) {
+                //     movePage(3, -1)
+                // } else if (page3_5) {
+                //     movePage(4, -1)
+                // } else {
+                //     movePage(5, -1)
+                // }
             }
         }
         if (actualPage.classList.contains("page3_2")) {
             if (page3_2_1 !== undefined &&
                 page3_2_2 !== undefined &&
                 page3_2_3 !== undefined) {
-                    if (page3_3) {
-                        movePage(1, -1)
-                    } else if (page3_4) {
-                        movePage(2, -1)
-                    } else if (page3_5) {
-                        movePage(3, -1)
-                    } else {
-                        movePage(4, -1)
-                    }
+                // if (page3_3) {
+                    movePage(1, -1)
+                // } 
+                // else if (page3_4) {
+                //     movePage(2, -1)
+                // } else if (page3_5) {
+                //     movePage(3, -1)
+                // } else {
+                //     movePage(4, -1)
+                // }
             }
         }
         if (actualPage.classList.contains("page3_3")) {
             if (page3_3_1 !== undefined ){
-                if (page3_4) {
+                // if (page3_4) {
                     movePage(1, -1)
-                } else if (page3_5) {
-                    movePage(2, -1)
-                } else {
-                    movePage(3, -1)
-                }
+                // } 
+                // else if (page3_5) {
+                //     movePage(2, -1)
+                // } else {
+                //     movePage(3, -1)
+                // }
             }
         }
         if (actualPage.classList.contains("page3_4")) {
             if (page3_4Array.some((item)=>(item !== undefined && item !== false))) {
-                if (page3_5) {
+                // if (page3_5) {
                     movePage(1, -1)
-                } else {
-                    movePage(2, -1)
-                }
+                // } 
+                // else {
+                //     movePage(2, -1)
+                // }
             }
         }
         if (actualPage.classList.contains("page3_5")) {
@@ -181,27 +192,15 @@ buttonNextArrLoc.forEach((elem) => {
 
 buttonPrevArrLoc.forEach((elem) => {
     elem.addEventListener("click", (e)=> {
-        // const actualPosition = Number(getComputedStyle(formPagesLoc).left.slice(0, getComputedStyle(formPagesLoc).left.length-2))
-        // const containerWidth = Number(getComputedStyle(containerLoc).width.slice(0, getComputedStyle(containerLoc).width.length-2))
-        // const leftContainerBorder = Number(getComputedStyle(containerLoc).borderLeftWidth.slice(0, getComputedStyle(containerLoc).borderLeftWidth.length-2))
-        // const rightContainerBorder = Number(getComputedStyle(containerLoc).borderRightWidth.slice(0, getComputedStyle(containerLoc).borderRightWidth.length-2))
-
-        // const leftPagesBorder = Number(getComputedStyle(formPagesLoc).borderLeftWidth.slice(0, getComputedStyle(formPagesLoc).borderLeftWidth.length-2))
-        // const rightPagesBorder = Number(getComputedStyle(formPagesLoc).borderRightWidth.slice(0, getComputedStyle(formPagesLoc).borderRightWidth.length-2))
-
-        // const containerWidthWithoutBorder = containerWidth - leftContainerBorder - rightContainerBorder - leftPagesBorder - rightPagesBorder
-        // const newLeftValue = actualPosition + containerWidthWithoutBorder
 
         const actualPage = e.target.closest(".form-page")
 
-        // formPagesLoc.style.left = newLeftValue + 100 + "px"
-        // setTimeout(()=> {
-        //     formPagesLoc.style.transition = "left 0.3s ease-out";
-        //     formPagesLoc.style.left = newLeftValue + "px"
-        // },550)
-        // setTimeout(()=> {
-        //     formPagesLoc.style.transition = "left 0.5s ease-in";
-        // },600)
+        formPageArrLoc.forEach((elem)=> {
+            if (elem !== actualPage) {
+                elem.scrollTop = 0
+            }
+        })
+
         if (actualPage.classList.contains("page2")) {
             movePage(1, 1)
         }
@@ -214,51 +213,55 @@ buttonPrevArrLoc.forEach((elem) => {
         if (actualPage.classList.contains("page3_2")) {
             if (page3_1Array.some((item)=>(item !== undefined && item !== false))) {
                movePage(1, 1)
-            } else {
-                movePage(2, 1)
-            }
+            } 
+            // else {
+            //     movePage(2, 1)
+            // }
         }
         if (actualPage.classList.contains("page3_3")) {
             if (page3_2_1 !== undefined &&
                 page3_2_2 !== undefined &&
                 page3_2_3 !== undefined) {
                 movePage(1, 1)
-            } else if (page3_1Array.some((item)=>(item !== undefined && item !== false))) {
-                movePage(2, 1)
-                }
-             else {
-                movePage(3, 1)
-            }
+            } 
+            // else if (page3_1Array.some((item)=>(item !== undefined && item !== false))) {
+            //     movePage(2, 1)
+            //     }
+            //  else {
+            //     movePage(3, 1)
+            // }
         }
         if (actualPage.classList.contains("page3_4")) {
             if (page3_3_1 !== undefined ){
                 movePage(1, 1)
-            } else if (page3_2_1 !== undefined &&
-                page3_2_2 !== undefined &&
-                page3_2_3 !== undefined) {
-                movePage(2, 1)
-            } else if (page3_1Array.some((item)=>(item !== undefined && item !== false))) {
-                movePage(3, 1)
-                }
-             else {
-                movePage(4, 1)
-            }
+            } 
+            // else if (page3_2_1 !== undefined &&
+            //     page3_2_2 !== undefined &&
+            //     page3_2_3 !== undefined) {
+            //     movePage(2, 1)
+            // } else if (page3_1Array.some((item)=>(item !== undefined && item !== false))) {
+            //     movePage(3, 1)
+            //     }
+            //  else {
+            //     movePage(4, 1)
+            // }
         }
         if (actualPage.classList.contains("page3_5")) {
             if (page3_4Array.some((item)=>(item !== undefined && item !== false))) {
                 movePage(1, 1)
-            } else if (page3_3_1 !== undefined ){
-                movePage(2, 1)
-            } else if (page3_2_1 !== undefined &&
-                page3_2_2 !== undefined &&
-                page3_2_3 !== undefined) {
-                movePage(3, 1)
-            } else if (page3_1Array.some((item)=>(item !== undefined && item !== false))) {
-                movePage(4, 1)
-                }
-             else {
-                movePage(5, 1)
-            }
+            } 
+            // else if (page3_3_1 !== undefined ){
+            //     movePage(2, 1)
+            // } else if (page3_2_1 !== undefined &&
+            //     page3_2_2 !== undefined &&
+            //     page3_2_3 !== undefined) {
+            //     movePage(3, 1)
+            // } else if (page3_1Array.some((item)=>(item !== undefined && item !== false))) {
+            //     movePage(4, 1)
+            //     }
+            //  else {
+            //     movePage(5, 1)
+            // }
         }
     })
 })
@@ -327,7 +330,7 @@ const contentArrLoc = document.querySelectorAll(".content")
 contentArrLoc.forEach((elem)=>{
     const selectBoxArrLoc = elem.querySelectorAll(".select-box")
     selectBoxArrLoc.forEach((el)=>{
-        el.addEventListener("click", ()=>{
+        el.addEventListener("click", (e)=>{
 
             if (elem.classList.contains("once")) {
                 selectBoxArrLoc.forEach((element)=>{
@@ -346,6 +349,21 @@ contentArrLoc.forEach((elem)=>{
                     changeVariableMulti(el.dataset.var_name, true)
                 }
             }
+
+            const actualPage = e.target.closest(".form-page")
+
+            if (actualPage.classList.contains("page3")) {
+                console.log(e.currentTarget.dataset.var_name)
+                if (e.currentTarget.classList.contains("selected")) {
+                    console.log("selected")
+                    console.log(formPageArrLoc)
+                    document.querySelector(`.${e.currentTarget.dataset.var_name}`).classList.remove("hidden")
+                } else {
+                    console.log("non-selected")
+                    document.querySelector(`.${e.currentTarget.dataset.var_name}`).classList.add("hidden")
+                }
+            }
+
         })
     })
 })
